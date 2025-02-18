@@ -15,6 +15,10 @@ def main(dry_run):
     branches_to_delete = []
 
     for branch in repo.get_branches():
+        print(':::' * 30)
+        print('branch:::', branch)
+        print(':::' * 30)
+        
         if branch.name in [main_branch, "develop"]:  # Keep important branches
             continue
 
