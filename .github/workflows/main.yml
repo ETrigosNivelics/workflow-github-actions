@@ -3,6 +3,7 @@ name: Clean Up Branches
 on:
   schedule:
     - cron: "0 0 * * 0"  # Cada domingo a medianoche
+  workflow_dispatch:  # Allows manual triggering
 
 jobs:
   cleanup:
