@@ -1,0 +1,27 @@
+name: Clean Up Branches
+
+on:
+  schedule:
+    - cron: "0 0 * * 0"  # Cada domingo a medianoche
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install PyGithub
+
+      - name: Execute cleanup script (dry-run)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/cleanup_branches.py --dry-run
+
+      # Una vez validado, se puede ejecutar sin --dry-run en otro job o modificando el flag
