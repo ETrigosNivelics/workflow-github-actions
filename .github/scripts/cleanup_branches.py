@@ -32,6 +32,10 @@ def main(dry_run):
         commit = repo.get_commit(branch.commit.sha)
         commit_date = commit.commit.author.date  # This is already timezone-aware
 
+        print(':::' * 30)
+        print('commit_date:::', commit_date)
+        print(':::' * 30)
+
         if commit_date > cutoff_date:
             continue
 
