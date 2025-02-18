@@ -10,5 +10,4 @@ jobs:
     uses: ETrigosNivelics/shared-workflows/.github/workflows/cleanup_branches.yml@main
     with:
       dryRun: true  # Customize as needed
-    secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
