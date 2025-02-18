@@ -7,22 +7,8 @@ on:
 
 jobs:
   cleanup:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-
-      - name: Install dependencies
-        run: pip install PyGithub
-
-      - name: Execute cleanup script (dry-run)
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python .github/scripts/cleanup_branches.py --dry-run
-
-      # Una vez validado, se puede ejecutar sin --dry-run en otro job o modificando el flag
+    uses: ETrigosNivelics/shared-workflows/.github/workflows/cleanup_branches.yml@main
+    with:
+      dryRun: true  # Customize as needed
+    secrets:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
