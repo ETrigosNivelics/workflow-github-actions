@@ -22,6 +22,6 @@ jobs:
       - name: Execute cleanup script (dry-run)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python scripts/cleanup_branches.py --dry-run
+        run: python .github/scripts/cleanup_branches.py --dry-run
 
       # Una vez validado, se puede ejecutar sin --dry-run en otro job o modificando el flag
