@@ -9,6 +9,6 @@ jobs:
   cleanup:
     uses: ETrigosNivelics/shared-workflows/.github/workflows/cleanup_branches.yml@main
     with:
-      months: 5
+      months: 6
       dryRun: true
 
